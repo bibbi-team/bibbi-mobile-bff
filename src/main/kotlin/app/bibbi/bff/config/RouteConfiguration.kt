@@ -1,6 +1,5 @@
 package app.bibbi.bff.config
 
-import app.bibbi.bff.config.filter.JWTAuthenticationFilter
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
 import org.springframework.cloud.gateway.route.builder.filters
 import org.springframework.cloud.gateway.route.builder.routes
@@ -16,7 +15,7 @@ import org.springframework.http.HttpMethod.GET
  */
 @Configuration
 class RouteConfiguration(
-    private val jwtAuthenticationFilter: JWTAuthenticationFilter,
+   // private val jwtAuthenticationFilter: JWTAuthenticationFilter,
 ) {
     @Bean
     fun bibbiRouteLocator(builder: RouteLocatorBuilder) = builder.routes {
@@ -25,7 +24,7 @@ class RouteConfiguration(
             filters {
 //                stripPrefix(PREFIX_SIZE)
 //                addRequestHeader(AUTHORIZATION, (myApiUsername to myApiPassword).toBasicAuthHeaderValue())
-                filter(jwtAuthenticationFilter)
+              //  filter(jwtAuthenticationFilter)
                 rewritePath("/v1/(?<segment>.*)", "/v1/${'$'}{segment}")
                // addRequestHeader()
             }

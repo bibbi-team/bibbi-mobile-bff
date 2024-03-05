@@ -22,7 +22,7 @@ class MainPageController {
 
     @GetMapping("/v1/xx")
     fun x(): Mono<String> {
-        Thread.sleep(1000)
+
         return Mono.just("s")
     }
 }

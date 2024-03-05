@@ -21,7 +21,7 @@ repositories {
 extra["springCloudVersion"] = "2023.0.0"
 
 dependencies {
-	//implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
@@ -31,8 +31,13 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.springframework.security:spring-security-test")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.0")
 
 	implementation("io.projectreactor.tools:blockhound:1.0.8.RELEASE")
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
+	implementation("io.jsonwebtoken:jjwt-api:0.12.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.5")
 }
 
 dependencyManagement {
