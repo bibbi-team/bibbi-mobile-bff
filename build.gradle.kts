@@ -21,7 +21,7 @@ repositories {
 extra["springCloudVersion"] = "2023.0.0"
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-security")
+	//implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
@@ -31,6 +31,8 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.springframework.security:spring-security-test")
+
+	implementation("io.projectreactor.tools:blockhound:1.0.8.RELEASE")
 }
 
 dependencyManagement {

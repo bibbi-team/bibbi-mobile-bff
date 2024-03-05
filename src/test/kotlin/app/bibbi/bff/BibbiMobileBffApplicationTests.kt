@@ -1,4 +1,4 @@
-package app.bibbi.bibbimobilebff
+package app.bibbi.bff
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

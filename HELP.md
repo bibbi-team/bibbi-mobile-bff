@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'app.bibbi.bibbi-mobile-bff' is invalid and this project uses 'app.bibbi.bibbimobilebff' instead.
+* The original package name 'app.bibbi.bibbi-mobile-bff' is invalid and this project uses 'app.bibbi.bff' instead.
 
 # Getting Started
 
