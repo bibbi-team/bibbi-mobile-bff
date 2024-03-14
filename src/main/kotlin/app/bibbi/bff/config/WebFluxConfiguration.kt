@@ -1,10 +1,12 @@
 package app.bibbi.bff.config
 
+import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.json.JsonMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinFeature
 import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.MediaType
@@ -23,8 +25,8 @@ import org.springframework.web.reactive.config.WebFluxConfigurer
 @Configuration
 class WebFluxConfiguration: WebFluxConfigurer {
     @Bean
-    fun objectMapper(): ObjectMapper = JsonMapper.builder()
-        .addModule(
+    fun objectMapper(): ObjectMapper = jacksonObjectMapper()
+        .registerModule(
             KotlinModule.Builder()
                 .withReflectionCacheSize(512)
                 .configure(KotlinFeature.NullToEmptyCollection, false)
@@ -34,8 +36,8 @@ class WebFluxConfiguration: WebFluxConfigurer {
                 .configure(KotlinFeature.StrictNullChecks, false)
                 .build()
         )
-        .addModule(JavaTimeModule())
-        .build()
+        .registerModule(JavaTimeModule())
+        .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
 
     override fun configureContentTypeResolver(builder: RequestedContentTypeResolverBuilder) {
         builder.fixedResolver(MediaType.APPLICATION_JSON)

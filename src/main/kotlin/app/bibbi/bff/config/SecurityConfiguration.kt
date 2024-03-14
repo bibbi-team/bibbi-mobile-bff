@@ -69,7 +69,7 @@ class SecurityConfiguration(
         .authorizeExchange { exchange ->
             exchange
                 .pathMatchers("/oo").permitAll()
-                .anyExchange().authenticated()
+                .anyExchange().permitAll()
         }
         .headers { headerSpec ->
             headerSpec.frameOptions {

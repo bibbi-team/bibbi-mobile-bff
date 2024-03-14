@@ -32,6 +32,7 @@ dependencies {
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.0")
+	implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64")
 
 	implementation("io.projectreactor.tools:blockhound:1.0.8.RELEASE")
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
